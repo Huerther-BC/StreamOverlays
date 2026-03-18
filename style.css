@@ -1,0 +1,42 @@
+:root {
+    --nba-blue: #1d428a;
+    --nba-red: #c8102e;
+    --gold: #ffc72c;
+    --glass: rgba(0, 0, 0, 0.85);
+    --font-main: 'Arial Black', sans-serif;
+}
+
+body { font-family: var(--font-main); margin: 0; color: white; background: transparent; }
+
+/* --- OVERLAY STYLES --- */
+#overlay { width: 1920px; height: 1080px; position: relative; overflow: hidden; }
+
+#scoreboard {
+    position: absolute; top: 30px; left: 50%; transform: translateX(-50%);
+    display: flex; background: var(--glass); padding: 10px 40px;
+    border-bottom: 5px solid var(--gold); border-radius: 8px; font-size: 35px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.score-num { font-size: 60px; color: var(--gold); margin: 0 20px; min-width: 80px; text-align: center; }
+.team-name { width: 150px; text-align: center; text-transform: uppercase; }
+
+#popup {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0);
+    background: var(--glass); padding: 50px; border-radius: 20px; text-align: center;
+    transition: 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); min-width: 400px;
+}
+#popup.active { transform: translate(-50%, -50%) scale(1); }
+
+/* --- DASHBOARD STYLES --- */
+.admin-body { background: #1a1a1a; padding: 20px; overflow: auto; }
+.grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.card { background: #2a2a2a; padding: 15px; border-radius: 10px; border: 1px solid #444; }
+button { 
+    background: #444; color: white; border: none; padding: 10px; 
+    margin: 5px; cursor: pointer; border-radius: 4px; font-weight: bold;
+}
+button:hover { background: #666; }
+button.add { background: #28a745; }
+button.danger { background: var(--nba-red); }
+input { background: #333; border: 1px solid #555; color: white; padding: 8px; width: 80%; }
