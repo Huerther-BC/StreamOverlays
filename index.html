@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball Stream System - Start</title>
+    <style>
+        body {
+            background: #121212;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 { color: #ffc72c; margin-bottom: 30px; }
+        .container { display: flex; gap: 20px; }
+        .card {
+            background: #1e1e1e;
+            padding: 40px;
+            border-radius: 15px;
+            border: 2px solid #333;
+            text-align: center;
+            width: 250px;
+            transition: 0.3s;
+            text-decoration: none;
+            color: white;
+        }
+        .card:hover {
+            border-color: #ffc72c;
+            transform: translateY(-10px);
+            background: #252525;
+        }
+        .card h2 { margin-top: 0; }
+        .card p { color: #aaa; font-size: 14px; }
+        .icon { font-size: 50px; margin-bottom: 15px; display: block; }
+    </style>
+</head>
+<body>
+
+    <h1>Basketball Broadcast System</h1>
+
+    <div class="container">
+        <a href="dashboard.html" class="card">
+            <span class="icon">⚙️</span>
+            <h2>Dashboard</h2>
+            <p>Spielsteuerung, Fouls, Punkte und PDF-Report.</p>
+        </a>
+
+        <a href="overlay.html" target="_blank" class="card">
+            <span class="icon">📺</span>
+            <h2>Overlay</h2>
+            <p>In OBS als Browser-Quelle (1920x1080) einbinden.</p>
+        </a>
+    </div>
+
+</body>
+</html>
