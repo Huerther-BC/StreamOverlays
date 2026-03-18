@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="overlay">
+        <div id="scoreboard">
+            <div class="team-name" id="name-home">HEIM</div>
+            <div class="score-num" id="score-home">0</div>
+            <div id="clock">10:00</div>
+            <div class="score-num" id="score-guest">0</div>
+            <div class="team-name" id="name-guest">GAST</div>
+        </div>
+
+        <div id="popup">
+            <h1 id="pop-title">TIMEOUT</h1>
+            <div id="pop-content"></div>
+        </div>
+    </div>
+
+    <script>
+        const bc = new BroadcastChannel('basket_stream');
+        
+        bc.onmessage = (ev) => {
+            const data = ev.data;
+            if(data.type === 'UPDATE_SCORE') {
+                document.getElementById('score-home').innerText = data.home;
+                document.getElementById('score-guest').innerText = data.guest;
+            }
+            if(data.type === 'SHOW_POPUP') {
+                const p = document.getElementById('popup');
+                document.getElementById('pop-title').innerText = data.title;
+                document.getElementById('pop-content').innerHTML = data.content;
+                p.classList.add('active');
+                if(data.duration) setTimeout(() => p.classList.remove('active'), data.duration);
+            }
+            if(data.type === 'HIDE_POPUP') {
+                document.getElementById('popup').classList.remove('active');
+            }
+        };
+    </script>
+</body>
+</html>
